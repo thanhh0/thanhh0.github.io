@@ -58,7 +58,7 @@ export default function Home() {
           animate="show"
           custom={2}
         >
-          Building the next <b>agentic products</b> at <b>Innomente</b>.
+          Building the next <b>agentic products</b> at <b>DigiWize</b>.
           Claude Certified Architect.
         </motion.p>
 
@@ -148,6 +148,22 @@ export default function Home() {
         <div className="body">
           <span className="gutter">// star format</span>
           <div className="exp">
+            <ExpCard
+              company="DigiWize"
+              when="Apr 2026 → Present"
+              role="Head of Artificial Intelligence"
+              stack="AWS AgentCore · Strands · Python"
+              intro={<>DigiWize is an all-in-one, AI-native platform for software companies — one product replacing the usual stack of Linear, Swarmia, Dropbox and more.</>}
+              star={{
+                s: "A software team's workflow was fragmented across separate tools for planning, engineering metrics and file storage, with no AI woven into the loop.",
+                t: "Build AI-native products and agentic workflows that consolidate the stack and put intelligence at the centre of how teams operate.",
+                a: "Designed multi-agent workflows on AWS AgentCore and Strands, stood up production-grade LLM infrastructure, and built RAG pipelines over structured data and knowledge systems.",
+                r: <>Multi-agent workflows streamlined operations and lifted overall productivity, backed by LLM infra running at <span className="metric">production-grade</span> performance and reliability.</>,
+              }}
+              tags={["AWS AgentCore", "Strands", "Python", "Multi-agent", "RAG", "LLM infra"]}
+              hi={["AWS AgentCore", "Multi-agent"]}
+            />
+
             <ExpCard
               company="Innomente · Sample Assist"
               when="Mar 2024 → Present"
@@ -371,6 +387,7 @@ function ExpCard({
   when,
   role,
   stack,
+  intro,
   star,
   tags,
   hi,
@@ -379,6 +396,7 @@ function ExpCard({
   when: string;
   role: string;
   stack: string;
+  intro?: React.ReactNode;
   star: { s: string; t: string; a: string; r: React.ReactNode };
   tags: string[];
   hi?: string[];
@@ -398,6 +416,7 @@ function ExpCard({
       <div className="role">
         {role} <span>·</span> {stack}
       </div>
+      {intro && <p className="intro">{intro}</p>}
       <dl className="star">
         <dt>S</dt><dd>{star.s}</dd>
         <dt>T</dt><dd>{star.t}</dd>
