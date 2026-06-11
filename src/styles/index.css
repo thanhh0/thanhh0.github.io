@@ -339,6 +339,14 @@ section.s .body > .gutter { color: var(--silver-mute); font-size: 10px; letter-s
   max-width: 64ch;
   line-height: 1.75;
 }
+.about .stamps {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.about .stamps .stamp { margin-top: 0; }
+.about a.stamp { text-decoration: none; }
 .about .stamp {
   margin-top: 28px;
   display: inline-flex;

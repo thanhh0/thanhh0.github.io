@@ -124,16 +124,27 @@ export default function Home() {
               Call it spec-driven, or just refusing to pass{" "}
               <code>--dangerously-skip-reading-code</code>.
             </p>
-            <button
-              type="button"
-              className="stamp stamp-btn"
-              onClick={() => setCertOpen(true)}
-              aria-haspopup="dialog"
-              aria-expanded={certOpen}
-            >
-              claude certified architect · anthropic
-              <span className="stamp-arrow" aria-hidden>↗</span>
-            </button>
+            <div className="stamps">
+              <button
+                type="button"
+                className="stamp stamp-btn"
+                onClick={() => setCertOpen(true)}
+                aria-haspopup="dialog"
+                aria-expanded={certOpen}
+              >
+                claude certified architect · anthropic
+                <span className="stamp-arrow" aria-hidden>↗</span>
+              </button>
+              <a
+                href="https://www.credly.com/badges/beaaf4d6-e95b-4b40-b1c2-886a85c51574"
+                target="_blank"
+                rel="noreferrer"
+                className="stamp stamp-btn"
+              >
+                aws agentic ai demonstrated · aws
+                <span className="stamp-arrow" aria-hidden>↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -172,8 +183,8 @@ export default function Home() {
               star={{
                 s: "A production data layer on Firestore was hitting query and modelling limits as the schema outgrew document semantics.",
                 t: "Move the system onto PostgreSQL without a maintenance window or a typed-contract regression.",
-                a: "Designed the relational schema, wrote a TypeORM rewrite of the data layer, planned a dual-write cutover, and reran read paths against the new store.",
-                r: <>Query performance improved <span className="metric">~2×</span>, the team got a fully typed data contract end-to-end, and the migration shipped with zero data-loss incidents.</>,
+                a: "Designed the relational schema, wrote a TypeORM rewrite of the data layer, and ran a phased cutover with parallel validation against the old store.",
+                r: <>Query performance improved <span className="metric">~2×</span>, the team got a fully typed data contract end-to-end, and the migration shipped with zero user-facing disruption.</>,
               }}
               tags={["PostgreSQL", "TypeORM", "Schema design", "Migration"]}
               hi={["PostgreSQL", "Migration"]}
@@ -184,11 +195,12 @@ export default function Home() {
               when="2024 → Present"
               role="iOS / Android CI/CD"
               stack="GitHub Actions · Fastlane · Xcode"
+              intro={<>Multiple production Flutter apps live on the App Store and Play Store, with crash analytics and a regular release cadence.</>}
               star={{
                 s: "iOS builds on CI took ~50 minutes, throttling release cadence and review feedback loops.",
                 t: "Cut iOS build time without buying more runners.",
                 a: "Profiled the build, isolated caching as the real bottleneck (not parallelism), and rebuilt the GitHub Actions + Fastlane caching strategy around derived data and Pods.",
-                r: <>iOS CI went from <span className="metric">50 → 20 min</span>, ~60% reduction. Faster feedback per PR and a release cadence the product side could actually plan around.</>,
+                r: <>iOS CI went from <span className="metric">50 → 20 min</span>, ~60% reduction. Faster build distribution shortened testing cycles and raised release confidence — a cadence the product side could actually plan around.</>,
               }}
               tags={["GitHub Actions", "Fastlane", "Caching", "iOS"]}
               hi={["50 → 20 min"]}
@@ -200,13 +212,13 @@ export default function Home() {
               role="Agentic product engineer"
               stack="AWS Bedrock · OpenAI · Anthropic SDK"
               star={{
-                s: "Product needed AI features that could actually ship to customers, not demos, not notebooks.",
-                t: "Design and deliver production-ready agentic products on top of AWS Bedrock and OpenAI.",
-                a: "Built the agent loop, tool surface, retry / fallback paths, observability and the deployment story; integrated into the existing NestJS / React stack with typed contracts end-to-end.",
-                r: <>Agentic features running in production with real users. Recognised externally as a <span className="metric">Claude Certified Architect.</span></>,
+                s: "The platform carried repetitive manual work, and the team's AI usage was ad-hoc — no shared workflows, no shipped agentic features.",
+                t: "Build agentic automation that ships to production, and make AI tooling a team-wide multiplier rather than a personal trick.",
+                a: "Built agentic automation modules on AWS Bedrock (AgentCore Runtime) — agent loop, tool surface, retry / fallback, observability — and introduced Claude Code best practices: skills, rules, and plugins.",
+                r: <>Repetitive manual work eliminated from the platform, ~<span className="metric">2× developer productivity</span> across the team, and external recognition as a <span className="metric">Claude Certified Architect.</span></>,
               }}
-              tags={["AWS Bedrock", "OpenAI", "Anthropic SDK", "Agents"]}
-              hi={["Claude Certified Architect", "AWS Bedrock"]}
+              tags={["AWS Bedrock", "AgentCore", "Claude Code", "Agents"]}
+              hi={["Claude Certified Architect", "AWS Bedrock", "2× developer productivity"]}
             />
           </div>
         </div>
